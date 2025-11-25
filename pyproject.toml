@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "summit"
+version = "0.1.0"
+description = "YouTube playlist summarizer with subtitle extraction"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Summit" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: Apache Software License",
+]
+
+dependencies = [
+  "yt-dlp>=2023.0.0",
+  "youtube-transcript-api>=0.6.1",
+  "sumy>=0.11.0",
+  "nltk>=3.8.0",
+  "httpx",
+  "bs4",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.34.0"]
+
+[project.scripts]
+summit = "summit.cli:main"
+
+[tool.setuptools]
+packages = ["summit"]
+
+[tool.setuptools.package-data]
+# Add patterns here if you later need non-.py files included
+"summit" = []
